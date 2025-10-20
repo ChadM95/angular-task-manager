@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-body2',
@@ -6,6 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./body2.component.css']
 })
 export class Body2Component implements OnInit {
+
+
+  @Output() dataEmitter = new EventEmitter<string>();
+
+  sendData(value: string) {
+    this.dataEmitter.emit(value);
+  }
 
   constructor() { }
 

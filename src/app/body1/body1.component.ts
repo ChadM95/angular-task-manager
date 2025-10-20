@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, Input } from '@angular/core';
 @Component({
   selector: 'app-body1',
   templateUrl: './body1.component.html',
@@ -7,9 +6,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Body1Component implements OnInit {
 
+
   constructor() { }
 
   ngOnInit(): void {
   }
+
 
 }
