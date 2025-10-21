@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Task } from '../models/task.model';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,9 @@ export class TaskService {
 
   private tasks: Task[] = [];
   private nextId = 1;
+  private tasksSubject = new BehaviorSubject<Task[]>([]);
+  tasks$ = this.tasksSubject.asObservable();
+
 
   getAllTasks(): Task[] {
     return this.tasks;
@@ -21,13 +25,16 @@ export class TaskService {
       name,
       active: false
     };
-    this.tasks.push(newTask)
+    this.tasks.push(newTask);
+    this.tasksSubject.next(this.tasks);
   }
   
   activateTask(id: number): void {
     const task = this.tasks.find(t => t.id === id);
     if (task) {
       task.active = true;
+      console.log(task.id + " - active : " + task.active);
+      this.tasksSubject.next(this.tasks);
     }
   }
 

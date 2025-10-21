@@ -24,3 +24,11 @@ input, label {
     
 }
 
+button:disabled {
+  background-color: #ccc;       /* grey background */
+  color: #666;                  /* dimmed text */
+  border: 1px solid #999;
+  cursor: not-allowed;
+  text-decoration: line-through; /* optional: cross out text */
+}
+

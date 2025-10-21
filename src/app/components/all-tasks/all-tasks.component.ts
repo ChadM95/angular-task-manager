@@ -14,7 +14,9 @@ export class AllTasksComponent implements OnInit {
   constructor(private taskService: TaskService) { }
 
   ngOnInit(): void {
-    this.tasks = this.taskService.getAllTasks(); // refresh list
+    this.taskService.tasks$.subscribe(tasks => {
+      this.tasks = tasks;
+    })
   }
 
   onTaskAdded(name: string) {
@@ -24,7 +26,7 @@ export class AllTasksComponent implements OnInit {
 
   activateTask(id: number) {
     this.taskService.activateTask(id);
-    this.tasks = this.taskService.getAllTasks();
+    this.tasks = this.taskService.getAllTasks();  
   }
 
 }
