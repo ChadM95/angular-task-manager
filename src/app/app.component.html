@@ -1,13 +1,10 @@
 <main>
-  <header><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROSVsyTE3Rq2DeKnZ9DvrUCTjEv6k0NTDNvw&s">my-app</header>
+  <header><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROSVsyTE3Rq2DeKnZ9DvrUCTjEv6k0NTDNvw&s">my-task-app</header>
 </main>
-<p>{{message}}</p>
-<section>
-  <app-header></app-header>
-</section>
-<section>
-  <app-body1></app-body1>
-</section>
-<section>
-  <app-body2 (dataEmitter)="receiveData($event)"></app-body2>
-</section>
+<div class="task-container">
+  <app-active-tasks></app-active-tasks>
+</div>
+<div class="task-container">
+  <app-all-tasks></app-all-tasks>
+</div>
+

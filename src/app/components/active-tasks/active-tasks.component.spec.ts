@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Body1Component } from './body1.component';
+import { ActiveTasksComponent } from './active-tasks.component';
 
-describe('Body1Component', () => {
-  let component: Body1Component;
-  let fixture: ComponentFixture<Body1Component>;
+describe('ActiveTasksComponent', () => {
+  let component: ActiveTasksComponent;
+  let fixture: ComponentFixture<ActiveTasksComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ Body1Component ]
+      declarations: [ ActiveTasksComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(Body1Component);
+    fixture = TestBed.createComponent(ActiveTasksComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
