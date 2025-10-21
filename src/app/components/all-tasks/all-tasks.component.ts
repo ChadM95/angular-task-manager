@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TaskService } from 'src/app/services/task.service';
+import { Task } from 'src/app/models/task.model';
 
 @Component({
   selector: 'app-all-tasks',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AllTasksComponent implements OnInit {
 
-  constructor() { }
+  tasks: Task[] = [];
+
+  constructor(private taskService: TaskService) { }
 
   ngOnInit(): void {
+    this.tasks = this.taskService.getAllTasks(); // refresh list
+  }
+
+  onTaskAdded(name: string) {
+    this.taskService.addTask(name);
+    this.tasks = this.taskService.getAllTasks();
+  }
+
+  activateTask(id: number) {
+    this.taskService.activateTask(id);
+    this.tasks = this.taskService.getAllTasks();
   }
 
 }

@@ -15,7 +15,8 @@ import { ActiveTasksComponent } from './components/active-tasks/active-tasks.com
     ActiveTasksComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

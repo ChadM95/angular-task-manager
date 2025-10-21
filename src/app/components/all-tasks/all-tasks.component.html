@@ -1,4 +1,11 @@
 <div class="inner-container">
-<app-add-task ></app-add-task>
+<app-add-task (taskAdded)="onTaskAdded($event)"></app-add-task>
 </div>
 <h4>all tasks</h4>
+<ul *ngFor="let task of tasks">
+    <li>
+        {{task.name}}
+        <button class="list-button" (click)="activateTask(task.id)" [disabled]="task.active">activate</button>
+    </li>
+</ul>
+
