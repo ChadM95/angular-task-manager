@@ -42,4 +42,13 @@ export class TaskService {
     return this.tasks.filter(task => task.active);
   }
 
+  deactivateTask(id: number): void {
+    const task = this.tasks.find(t => t.id === id);
+    if (task) {
+      task.active = false;
+      console.log("task : \'" + task.name + "\' deactivated");
+      this.tasksSubject.next(this.tasks);
+    }
+  }
+
 }

@@ -1,4 +1,7 @@
 <h4>active tasks</h4>
 <ul>
-    <li *ngFor="let task of activeTasks">{{task.name}}</li>
+    <li *ngFor="let task of activeTasks">
+        {{task.name}}
+        <button class="list-button" (click)="deactivateTask(task.id)">deactivate</button>
+    </li>
 </ul>

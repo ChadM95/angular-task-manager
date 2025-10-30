@@ -13,6 +13,12 @@ export class ActiveTasksComponent implements OnInit {
 
   constructor(private taskService: TaskService) { }
 
+
+  deactivateTask(id: number): void {
+    this.taskService.deactivateTask(id);
+  }
+
+
   ngOnInit(): void {
     this.taskService.tasks$.subscribe(tasks => {
       this.activeTasks = tasks.filter(task => task.active);
