@@ -27,14 +27,17 @@ export class TaskService {
     };
     this.tasks.push(newTask);
     this.tasksSubject.next(this.tasks);
+    console.log("task : \'" + newTask.name + "\' added");
+    this.saveToLocalStorage();
   }
   
   activateTask(id: number): void {
     const task = this.tasks.find(t => t.id === id);
     if (task) {
       task.active = true;
-      console.log(task.id + " - active : " + task.active);
+      console.log("task : \'" + task.name + "\' activated");
       this.tasksSubject.next(this.tasks);
+      this.saveToLocalStorage();
     }
   }
 
@@ -48,7 +51,12 @@ export class TaskService {
       task.active = false;
       console.log("task : \'" + task.name + "\' deactivated");
       this.tasksSubject.next(this.tasks);
+      this.saveToLocalStorage();
     }
+  }
+
+  saveToLocalStorage(): void {
+    localStorage.setItem("tasks", JSON.stringify(this.tasks));
   }
 
 }
